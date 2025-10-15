@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>ALERTE DE SENSIBILISATION : PHISHING</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ffe0b2; /* Une couleur douce orangée/pêche */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-out;
+        }
+        .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #ff9800; /* Orange vif */
+        }
+        h1 {
+            color: #d32f2f; /* Rouge pour l'impact */
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .action-points {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 30px;
+        }
+        .action-points li {
+            background-color: #fff3e0; /* Fond clair pour les points */
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-left: 5px solid #ff9800;
+            border-radius: 5px;
+        }
+        .small-text {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 30px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">⚠️</div>
+        <h1>ALERTE ! Vous venez de participer à un exercice de simulation de phishing.</h1>
+        
+        <p>Ce mail, bien que très réaliste, était un test pour évaluer notre vigilance collective face aux cybermenaces.</p>
+        <p>Si ce message avait été une véritable attaque de phishing, cliquer sur ce lien aurait pu entraîner des conséquences graves pour vous et pour l'entreprise : vol d'identifiants, infection par un logiciel malveillant, ou compromission de données confidentielles.</p>
+
+        <p><strong>Comment auriez-vous pu détecter cette tentative de fraude ?</strong></p>
+        <ul class="action-points">
+            <li><strong>Vérifiez l'adresse de l'expéditeur :</strong> L'adresse semblait officielle, mais le domaine (ex: `siam-reforme.com`) était faux. Le vrai domaine de SIAM n'aurait pas de sous-domaine douteux.</li>
+            <li><strong>Survolez les liens :</strong> Avant de cliquer, survolez le lien avec votre souris (sans cliquer) pour voir l'URL réelle. Ici, elle vous aurait redirigé vers une page inattendue.</li>
+            <li><strong>Méfiez-vous de l'urgence ou de l'importance excessive :</strong> Les cybercriminels créent souvent un sentiment d'urgence ou d'importance pour vous pousser à agir sans réfléchir.</li>
+            <li><strong>Contactez en cas de doute :</strong> Si un e-mail semble suspect, même s'il provient d'un collègue, contactez-le par un autre moyen (téléphone, message interne) pour confirmer.</li>
+        </ul>
+
+        <p>Cette simulation fait partie de notre programme de sensibilisation à la cybersécurité. Votre vigilance est notre meilleure défense !</p>
+
+        <div class="small-text">
+            Pour plus d'informations et de conseils, contactez le service informatique via helpdesk@bens-groupe.com.
+        </div>
+    </div>
+</body>
+</html>
