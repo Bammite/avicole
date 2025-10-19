@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation EmailJS - Guide d'implémentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+
+        .container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .step {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #e83e8c;
+        }
+
+        pre {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .tip {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guide d'implémentation d'EmailJS dans une page web</h1>
+        
+        <div class="step">
+            <h2>1. Configuration du compte EmailJS</h2>
+            <ol>
+                <li>Créez un compte sur <a href="https://www.emailjs.com/" target="_blank">EmailJS.com</a></li>
+                <li>Connectez-vous à votre tableau de bord</li>
+                <li>Configurez un service email (Gmail, Outlook, etc.)</li>
+                <li>Créez un template d'email</li>
+                <li>Notez votre clé publique (Public Key)</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h2>2. Intégration dans votre page HTML</h2>
+            <h3>Ajoutez le script EmailJS</h3>
+            <pre><code>&lt;script src="https://cdn.emailjs.com/dist/email.min.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="step">
+            <h2>3. Initialisation d'EmailJS</h2>
+            <pre><code>&lt;script&gt;
+    // Initialisez EmailJS avec votre clé publique
+    emailjs.init("VOTRE_CLE_PUBLIQUE");
+&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="step">
+            <h2>4. Exemple complet de fonction d'envoi</h2>
+            <pre><code>&lt;script&gt;
+    emailjs.init("VOTRE_CLE_PUBLIQUE");
+
+    function envoyerEmail(message) {
+        emailjs.send(
+            "ID_DE_VOTRE_SERVICE",     // Par exemple "service_4ov0bpl"
+            "ID_DE_VOTRE_TEMPLATE",    // Par exemple "template_20h9f6b"
+            { 
+                message: message       // Les variables à envoyer au template
+            }
+        ).then(
+            function(response) {
+                console.log("Email envoyé avec succès!", response);
+            },
+            function(error) {
+                console.log("Erreur lors de l'envoi:", error);
+            }
+        );
+    }
+&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="step">
+            <h2>5. Exemple concret (comme dans SensibilisationTest.html)</h2>
+            <pre><code>&lt;script&gt;
+    emailjs.init("htrfBsvvT4C1AP36R");
+
+    function connexion(message) {
+        emailjs.send(
+            "service_4ov0bpl",
+            "template_20h9f6b",
+            { message: message }
+        ).then(
+            function(response) {
+                console.log("E-mail envoyé avec succès !", response);
+            },
+            function(error) {
+                console.log("Erreur lors de l'envoi de l'e-mail :", error);
+            }
+        );
+    }
+
+    // Exemple d'utilisation avec paramètre URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const visitPar = urlParams.get('visitePar');
+    
+    if (visitPar) {
+        connexion(`consultation de la page par: ${visitPar}`);
+    }
+&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="note">
+            <h3>Notes importantes :</h3>
+            <ul>
+                <li>Ne partagez jamais votre clé privée EmailJS</li>
+                <li>Limitez le nombre d'envois d'emails selon votre plan EmailJS</li>
+                <li>Testez toujours l'envoi d'emails en environnement de développement</li>
+            </ul>
+        </div>
+
+        <div class="tip">
+            <h3>Conseils :</h3>
+            <ul>
+                <li>Utilisez des templates personnalisés pour une meilleure présentation des emails</li>
+                <li>Ajoutez une validation des données avant l'envoi</li>
+                <li>Gérez les erreurs d'envoi pour une meilleure expérience utilisateur</li>
+                <li>Utilisez des variables dynamiques dans vos templates</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>6. Variables dynamiques dans le template</h2>
+            <p>Dans votre template EmailJS, vous pouvez utiliser des variables comme ceci :</p>
+            <pre><code>Nouveau message de : {{from_name}}
+Email : {{email}}
+Message : {{message}}</code></pre>
+            <p>Ces variables seront remplacées par les valeurs que vous envoyez dans l'objet de données.</p>
+        </div>
+    </div>
+</body>
+</html>
