@@ -28,6 +28,11 @@
             </button>
         </div>
     </header>
+CREATE DATABASE roundcube CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE USER 'roundcubeuser'@'localhost' IDENTIFIED BY 'MotDePasseFort';
+GRANT ALL PRIVILEGES ON roundcube.* TO 'roundcubeuser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
 
     <!-- Section Héros -->
     <section id="hero" class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80');">
