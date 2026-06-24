@@ -1,3 +1,3 @@
 # avicole
 
-https://bammite.github.io/avicole/code
+https://bammite.github.io/avicole
